@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.20"> 
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <title>RCMND</title>
+  <link rel="stylesheet" type="text/css" href="estilos/estilo.css">
+  <script type="text/javascript" src="js/vshtml.js"></script>
+</head>
+<body>
+  <p>Ingrese al <strong>mejor </strong> buscador que existe y existirá<a href="https://www.google.com.co" target="_blank">Google</a></p>
+
+  <header>
+    <p id="indice">Páginas recomendades por GBSoft</p>
+  </header>
+
+  <blockquote>
+    <p>Continuamente estamos visitando páginas Web que querríamos visitar en los próximos días o simplemente guardarlas para una consulta posterior.<br>
+    Para esto existen varias herramientas que le permiten guardar un listado de páginas visitadas pero con el inconveniente de tener que registrarse y sin la posibilidad de agregarlas a una lista personal. <br>
+    Esta página permite (por ahora), consultar las páginas recomendadas o guardadas por mí o mis amigos en la web y allí mismo la puedo consultar desde cualquier equipo y anónimamente. Debería ser una pestaña fija en mi navegador.
+    </p>
+    <video width="384" height="216" controls loop autoplay poster="logo_azul_flojo.png">
+      <source src="imagenes\blacky.mp4" type="video/mp4"/>
+    </video>
+    <img src="https://secure.gravatar.com/avatar/24f2e5cf727d3bc8bf914ddaf9c94225?s=150" alt="Guillermo Betancur">
+    <em>Guillermo Betancur</em>
+  </blockquote>
+
+  <section>
+    <nav class="menu">
+      <ul id="mindice">
+        <li><h3>Índice</h3></li>
+      </ul>
+    </nav>
+    <article id="paginas" class="paginas">
+      <script>leeArchivo("datos/paginasWeb.csv");</script>
+    </article>    
+  </section>
+
+  <div id="regreso">
+    <a href="#indice">Inicio</a>
+  </div>
+
+  <footer>
+    <p>GB Software 2018</p>
+  </footer>
+
+  <script>
+    var acc = document.getElementsByClassName("acordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var opciones = this.nextElementSibling;
+        if (opciones.style.maxHeight){
+          opciones.style.maxHeight = null;
+        } else {
+          opciones.style.maxHeight = opciones.scrollHeight + "px";
+        } 
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+th {
+    font-family: 'Parisienne', cursive;
+    color: yellow;
+    column-span: 3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+/* Style the header */
+header {
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid;
+/*  transform: perspective(1000px) rotate3d(0, 1, 0, -25deg);*/
+    background-color: #666;
+/*    padding: 30px;*/
+    font-size: 25px;
+    color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+    float: left;
+    width: 15%;
+/*    height: 300px; /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 0px 20px;
+/*    position: fixed;*/
+    word-wrap: break-word;
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+article {
+    float: left;
+    padding: 5px 20px;
+    width: 55%;
+    background-color: black;
+/*    height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.xmenu {
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.xmenu a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #2196F3;
+    display: block;
+}
+
+.xmenu a:hover {
+    color: #064579;
+}
+.paginas {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+/*    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+#regreso a {
+    position: fixed; 
+    z-index: 9999; 
+    right: 0; 
+    float:right; 
+    top: 90%; 
+    margin-top: 1px; 
+    cursor: pointer; 
+    min-width:50px; 
+    max-width:500px; 
+    color:black; 
+    text-align:center; 
+    padding:5px; 
+    margin:0 auto 0 auto; 
+    background:white; 
+    -webkit-transition: All 0.5s ease; 
+    -moz-transition: All 0.5s ease; 
+    -o-transition: All 0.5s ease; 
+    -ms-transition: All 0.5s ease; 
+    transition: All 0.5s ease; 
+    border-radius: 80px;
+    font-size: 15px;
+}
+
+a {
+    color: cyan;
+}
+nav a {
+    color: red;
+}
+.acordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .acordion:hover {
+    background-color: #ccc;
+}
+
+.acordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.opciones {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
