@@ -1,7 +1,11 @@
+/* Estilos sin el menu*/
 th {
     font-family: 'Parisienne', cursive;
     color: yellow;
     column-span: 3;
+}
+blockquote {
+    margin-left: 200px;
 }
 
 * {
@@ -34,8 +38,13 @@ nav {
 /*    height: 300px; /* only for demonstration, should be removed */
     background: #ccc;
     padding: 0px 20px;
-/*    position: fixed;*/
+    position: fixed;*/
     word-wrap: break-word;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
 /* Style the list inside the menu */
@@ -45,11 +54,12 @@ nav ul {
 }
 
 article {
-    float: left;
+    float: fixed;
     padding: 5px 20px;
-    width: 55%;
+    width: 70%;
     background-color: black;
 /*    height: 300px; /* only for demonstration, should be removed */
+    margin-left: 200px;
 }
 
 /* Clear floats after the columns */
@@ -98,7 +108,7 @@ footer {
     color: #064579;
 }
 .paginas {
-    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    margin-left: 190px; /* Same width as the sidebar + left position in px */
 /*    font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
 }
@@ -168,4 +178,10 @@ nav a {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+#abrirCerrar {
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
