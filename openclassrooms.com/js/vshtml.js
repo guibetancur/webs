@@ -43,13 +43,24 @@ function leeArchivo(file) {
                   //cuerpo.appendChild(tabla);
                   articulo.appendChild(tabla);
                   // modifica el atributo "border" de la tabla en 2
-                  tblCuerpo.setAttribute("border","2");
+                  //tblCuerpo.setAttribute("border","2");
                } 
                if (msub!==msubx) {
                   titulos.push(mcat+'/'+msub);
-                  row = tabla.appendChild(document.createElement("tr"));
+                  row = tabla.appendChild(document.createElement("th"));
                   row.innerHTML = items[1];
                   row.setAttribute("id",items[0]+items[1]);
+                  row.setAttribute("class","sublinea");
+                  row.setAttribute("colspan","3");
+                  if (mcat!==mcatx) {
+                     rowtit = tabla.appendChild(document.createElement("tr"));
+                     tit = rowtit.appendChild(document.createElement("td"));
+                     tit.innerHTML = "Dominio";
+                     tit = rowtit.appendChild(document.createElement("td"));
+                     tit.innerHTML = "Descripción";
+                     tit = rowtit.appendChild(document.createElement("td"));
+                     tit.innerHTML = "Detalle";
+                  }
                }
                row = tabla.appendChild(document.createElement("tr"));
 //               row.appendChild(document.createElement("td")).innerText = items[0];
@@ -73,7 +84,7 @@ function leeArchivo(file) {
                   lis.setAttribute("class","acordion");
                }
                lis = ind.appendChild(document.createElement("li"));
-               lis.innerHTML = '<a href="#'+mtit[0]+mtit[1]+'">- '+mtit[1]+'</a>';
+               lis.innerHTML = '<a href="#'+mtit[0]+mtit[1]+'">'+mtit[1]+'</a>';
                lis.setAttribute("class","opciones");
                lis.setAttribute("color","blue");
                mcatx = mtit[0]
