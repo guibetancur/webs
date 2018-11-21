@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.20"> 
+  <meta name="description" content="Aprendizaje Web">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Guillermo Betancur">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <title>RCMND</title>
+  <link rel="stylesheet" type="text/css" href="estilos/estilo.css">
+  <script type="text/javascript" src="js/vshtml.js"></script>
+</head>
+<body>
+<!--
+  <p>Ingrese al <strong>mejor </strong> buscador que existe y existirá... <a href="https://www.google.com.co" target="_blank">Google</a></p>
+-->
+  <header id="indice">
+    <p>Páginas recomendades por GBSoft
+    </p>
+  </header>
+<div class="centro">
+  <blockquote>
+    <p>
+    Continuamente visitamos páginas Web que querríamos ver en próximos días o simplemente guardarlas para una consulta posterior.<br>
+    Para esto existen varias herramientas que le permiten guardar un listado de páginas visitadas pero con el inconveniente de tener<br>
+    que registrarse y sin la posibilidad de agregarlas a una lista personal. Además, tiene una breve descripción y un detalle personal <br>sobre la página en particular. <br>
+    Esta página permite (por ahora), consultar las páginas recomendadas o guardadas por mí o mis amigos en la web y allí mismo la<br> puedo consultar desde cualquier equipo y anónimamente. Debería ser una pestaña fija en mi navegador.
+    </p>
+<!--
+    <video width="384" height="216" controls loop autoplay poster="logo_azul_flojo.png">
+      <source src="imagenes\blacky.mp4" type="video/mp4"/>
+    </video>
+-->
+  </blockquote>
+</div>
+      <img class="avatar" src="https://secure.gravatar.com/avatar/24f2e5cf727d3bc8bf914ddaf9c94225?s=60" alt="Guillermo Betancur">
+    <div class="izquierda">
+  <section>
+    <nav class="menu">
+      <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Búsqueda.." title="Escriba una categoría">
+      <ul id="mindice">
+        <h3>Índice<button id="abrirCerrar" onClick="abrirCerrar()">+</button></h3>
+      </ul>
+    <img class="avatar" src="https://secure.gravatar.com/avatar/24f2e5cf727d3bc8bf914ddaf9c94225?s=160" alt="Guillermo Betancur">
+    <em>Guillermo Betancur</em>
+    </nav>
+    <article id="paginas" class="paginas">
+      <script>leeArchivo("datos/paginasWeb.csv");</script>
+    </article>
+  </section>
+    </div>
 
+  <div id="regreso">
+    <a href="#indice">Inicio</a>
+  </div>
+
+  <footer style="margin-left: 200px;">
+    <p>GB Software 2018</p>
+  </footer>
+
+  <script>
+    var mabierto = false;
+    var mas = document.getElementById("abrirCerrar");
+    var acc = document.getElementsByClassName("acordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var opciones = this.nextElementSibling;
+        if (opciones.style.maxHeight) {
+          var altura = null;
+        } else {
+          var altura = "18px";
+        }
+        var sigue = false;
+        if (opciones.className === "opciones") {
+          sigue = true;
+        }
+        while (sigue) {
+          opciones.style.maxHeight = altura;
+          var hermano = opciones.nextElementSibling;
+          if (hermano===null) {
+            sigue = false;
+          } else {
+            if (hermano.className==="opciones") {
+              hermano.style.maxHeight = altura;
+              opciones = hermano;
+            } else {
+              sigue = false;
+            }
+          }
+        }
+/*
+        if (opciones.style.maxHeight){
+          opciones.style.maxHeight = null;
+        } else {
+          opciones.style.maxHeight = opciones.scrollHeight + "px";
+          }
+        } 
+*/        
+      });
+    }
+    function myFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("mySearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("mindice");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+    function abrirCerrar() {
+      mabierto = !mabierto;
+      if (mabierto) {
+        var maltura = "18px";
+        var clase = "acordion active";
+        var signo = "-"
+      } else {
+        var maltura = null;
+        var clase = "acordion";
+        var signo = "+"
+      }
+      mas.innerText = signo;
+      for (i = 0; i < acc.length; i++) {
+//        acc[i].classList.toggle("active");
+        acc[i].classList = clase;
+      }
+      var xxx = document.getElementsByClassName("opciones");
+      for (i = 0; i < xxx.length; i++) {
+        xxx[i].style.maxHeight = maltura;
+      }
+    }
+  </script>
+</body>
+</html>
